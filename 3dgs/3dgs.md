@@ -41,7 +41,7 @@ $$\Sigma_{new} = A \Sigma A^T$$
 
 **分解相机成像过程**
 
-将 3D 高斯投影到屏幕，实际上经历了两次坐标变换：
+将 3D 高斯投影到屏幕，经历两次坐标变换：
 
 #### 第一步：世界坐标系 $\to$ 相机坐标系 (Affine Transformation)
 
@@ -50,7 +50,9 @@ $$\Sigma_{new} = A \Sigma A^T$$
 根据上面的传递性质，高斯体在相机空间下的协方差为：
 
 $$\Sigma_{cam} = W \Sigma W^T$$
-
+高斯分布的仿射变换（这里b不起作用）
+$$ \mathbf{w} = A\mathbf{x} + b $$
+$$\mathbf{w} \sim \mathcal{N}\bigl(A\mu + b,\; A\Sigma A^T\bigr)$$
 #### 第二步：相机坐标系 $\to$ 图像坐标系 (Projective Transformation)
 
 透视投影（Perspective Projection）本身是非线性的。
@@ -87,3 +89,5 @@ $$C = \sum_{i \in N} c_i \alpha_i \prod_{j=1}^{i-1} (1 - \alpha_j)$$
 - $\alpha_i$ 是该高斯体在像素处的有效不透明度，由预设的不透明度 $\sigma_i$ 和 2D 高斯值计算得出：
     
     $$\alpha_i = \sigma_i \cdot \exp\left(-\frac{1}{2}(x'-\mu')^T (\Sigma')^{-1} (x'-\mu')\right)$$
+
+
