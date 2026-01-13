@@ -208,8 +208,10 @@
   },
   "active": "88f11202052f180f",
   "lastOpenFiles": [
-    "3dgs/COLMAP-Free 3D Gaussian Splatting.pdf",
     "3dgs/正定性.md",
+    "3dgs/COLMAP-Free 3D Gaussian Splatting.pdf",
+    "TPAMI2025-StylizedGS Controllable Stylization for 3D Gaussian Splatting.pdf",
+    "3d_gaussian_splatting_low.pdf",
     "3dgs/3dgs.md",
     "3dgs/变换矩阵.md",
     "().md",
