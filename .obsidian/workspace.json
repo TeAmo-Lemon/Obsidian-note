@@ -1,46 +1,20 @@
 {
   "main": {
-    "id": "526d0b37ffed234f",
+    "id": "14fb5f7f28ace1de",
     "type": "split",
     "children": [
       {
-        "id": "4903afcc6efc00b3",
+        "id": "e1c255956b8799dc",
         "type": "tabs",
-        "dimension": 49.178403755868544,
         "children": [
           {
-            "id": "88f11202052f180f",
+            "id": "0e0ad818c24b37fc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "3dgs/相机变换.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "相机变换"
-            }
-          }
-        ]
-      },
-      {
-        "id": "9b11202129fdf969",
-        "type": "tabs",
-        "dimension": 50.82159624413145,
-        "children": [
-          {
-            "id": "c47bed75689e908f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "3dgs/相机变换.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "相机变换"
+              "title": "新标签页"
             }
           }
         ]
@@ -49,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "c145ecf033b6af5e",
+    "id": "5fbe331bf83c5584",
     "type": "split",
     "children": [
       {
-        "id": "5fccf629078d8fe8",
+        "id": "44d375c6f676ffd1",
         "type": "tabs",
         "children": [
           {
-            "id": "eb90d9712d40b170",
+            "id": "a40b366e385875e1",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -70,7 +44,7 @@
             }
           },
           {
-            "id": "285fc38a0349c20e",
+            "id": "1bcf6279f56a6eee",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -87,7 +61,7 @@
             }
           },
           {
-            "id": "68c8255b9e834b46",
+            "id": "5c29d7dec4e9a520",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -103,20 +77,19 @@
     "width": 300
   },
   "right": {
-    "id": "6bcbf9a01ad44465",
+    "id": "3e827fbb82ec4d7c",
     "type": "split",
     "children": [
       {
-        "id": "2af3246bc61eb738",
+        "id": "4c2f5bdfc0a5146b",
         "type": "tabs",
         "children": [
           {
-            "id": "7b5a36246fd3b837",
+            "id": "c2c5d74f8a1a7177",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3dgs/相机变换.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,11 +99,11 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "相机变换 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
-            "id": "010fe665a38287d0",
+            "id": "25792881b2374c64",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -143,7 +116,7 @@
             }
           },
           {
-            "id": "dd3d48c97ac547ed",
+            "id": "7859f18b0e9fb487",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -158,7 +131,7 @@
             }
           },
           {
-            "id": "9141cea36e094d5a",
+            "id": "bd16bf24596c7b8a",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -172,22 +145,20 @@
             }
           },
           {
-            "id": "04cc8004563af84f",
+            "id": "a6e936022b9f9039",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "3dgs/相机变换.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "相机变换 的大纲"
+              "title": "大纲"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -206,25 +177,6 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "88f11202052f180f",
-  "lastOpenFiles": [
-    "3dgs/assets/Capture_20260113_230826.jpg",
-    "3dgs/assets/Pasted image 20260113225213.png",
-    "3dgs/assets",
-    "3dgs/3dgs.md",
-    "3dgs/相机变换.md",
-    "3dgs/正定性.md",
-    "3dgs/COLMAP-Free 3D Gaussian Splatting.pdf",
-    "3dgs/变换矩阵.md",
-    "().md",
-    "3dgs",
-    "未命名.canvas",
-    "未命名.base",
-    "assets/testimage.png",
-    "assets/Pasted image 20260113131405.png",
-    "235FD51F19A542F54510F7A81FDB2FBA.gif",
-    "蜀黍.gif",
-    "assets/Pasted image 20260113130857.png",
-    "assets"
-  ]
+  "active": "0e0ad818c24b37fc",
+  "lastOpenFiles": []
 }
