@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e1c255956b8799dc",
+        "id": "f7a35ee4ec1da471",
         "type": "tabs",
         "children": [
           {
-            "id": "0e0ad818c24b37fc",
+            "id": "e742ad3e805e6cf6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "3dgs/相机变换.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "相机变换"
             }
           }
         ]
@@ -74,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 390.5
   },
   "right": {
     "id": "3e827fbb82ec4d7c",
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "3dgs/3dgs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "反向链接"
+              "title": "3dgs 的反向链接列表"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "3dgs/3dgs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "出链"
+              "title": "3dgs 的出链列表"
             }
           },
           {
@@ -150,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "3dgs/3dgs.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "3dgs 的大纲"
             }
           }
         ]
@@ -177,6 +184,13 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "0e0ad818c24b37fc",
-  "lastOpenFiles": []
+  "active": "e742ad3e805e6cf6",
+  "lastOpenFiles": [
+    "TPAMI2025-StylizedGS Controllable Stylization for 3D Gaussian Splatting.pdf",
+    "COLMAP-Free 3D Gaussian Splatting.pdf",
+    "3dgs/相机变换.md",
+    "3dgs/3d_gaussian_splatting_low.pdf",
+    "3dgs/3dgs.md",
+    "3dgs/正定性.md"
+  ]
 }
