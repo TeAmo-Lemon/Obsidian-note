@@ -91,3 +91,7 @@ $$C = \sum_{i \in N} c_i \alpha_i \prod_{j=1}^{i-1} (1 - \alpha_j)$$
     $$\alpha_i = \sigma_i \cdot \exp\left(-\frac{1}{2}(x'-\mu')^T (\Sigma')^{-1} (x'-\mu')\right)$$
 
 
+# 源码解读
+
+## Colmap生成的参数
+![](assets/Pasted%20image%2020260115192724.png)

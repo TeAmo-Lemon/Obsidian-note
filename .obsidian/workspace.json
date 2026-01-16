@@ -11,14 +11,12 @@
             "id": "e742ad3e805e6cf6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "3dgs/相机变换.md",
-                "mode": "source",
-                "source": false
+                "file": "colmap-free 3dgs/COLMAP-Free 3D Gaussian Splatting.pdf"
               },
-              "icon": "lucide-file",
-              "title": "相机变换"
+              "icon": "lucide-file-text",
+              "title": "COLMAP-Free 3D Gaussian Splatting"
             }
           }
         ]
@@ -78,7 +76,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 390.5
+    "width": 384.5
   },
   "right": {
     "id": "3e827fbb82ec4d7c",
@@ -186,11 +184,20 @@
   },
   "active": "e742ad3e805e6cf6",
   "lastOpenFiles": [
-    "TPAMI2025-StylizedGS Controllable Stylization for 3D Gaussian Splatting.pdf",
-    "COLMAP-Free 3D Gaussian Splatting.pdf",
+    "feedforward/GPS-Gaussian_ Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis.pdf",
+    "feedforward/DrivingForward Feed-forward 3D Gaussian Splatting for Driving Scene.pdf",
+    "feedforward",
+    "新建文件夹",
     "3dgs/相机变换.md",
-    "3dgs/3d_gaussian_splatting_low.pdf",
     "3dgs/3dgs.md",
-    "3dgs/正定性.md"
+    "colmap-free 3dgs/COLMAP-Free 3D Gaussian Splatting.pdf",
+    "colmap-free 3dgs",
+    "DrivingForward Feed-forward 3D Gaussian Splatting for Driving Scene.pdf",
+    "32793-Article Text-36861-1-2-20250410.pdf",
+    "GPS-Gaussian_ Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis.pdf.crdownload",
+    "GPS-Gaussian_ Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis.pdf",
+    "3dgs/assets/Pasted image 20260115192724.png",
+    "3dgs/正定性.md",
+    "3dgs/3d_gaussian_splatting_low.pdf"
   ]
 }
