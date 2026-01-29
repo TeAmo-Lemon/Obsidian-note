@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "f7a35ee4ec1da471",
+        "id": "a8d12e0fd14a90ae",
         "type": "tabs",
         "children": [
           {
-            "id": "e742ad3e805e6cf6",
+            "id": "90fa53c323d2746c",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "colmap-free 3dgs/COLMAP-Free 3D Gaussian Splatting.pdf"
+                "file": "Experiments.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "COLMAP-Free 3D Gaussian Splatting"
+              "icon": "lucide-file",
+              "title": "Experiments"
             }
           }
         ]
@@ -92,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "3dgs/3dgs.md",
+                "file": "Experiments.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "3dgs 的反向链接列表"
+              "title": "Experiments 的反向链接列表"
             }
           },
           {
@@ -182,22 +184,30 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "e742ad3e805e6cf6",
+  "active": "90fa53c323d2746c",
   "lastOpenFiles": [
+    "assets/Pasted image 20260127192737.png",
+    "style/assets/Pasted image 20260127215400.png",
+    "style/assets/Pasted image 20260127215440.png",
+    "style/G-Style Stylized Gaussian Splatting.pdf",
+    "style/StylizedGS.md",
+    "style/assets",
+    "Experiments.md",
+    "points/AAAI2026_PointDGRWKV.pdf",
+    "style/Style Transfer by Relaxed Optimal Transport and Self-Similarity.pdf",
+    "style/Style Transfer by Relaxed Optimal Transport and Self-Similarity.pdf.crdownload",
+    "points/assets/Pasted image 20260117120123.png",
+    "TPAMI2025-StylizedGS Controllable Stylization for 3D Gaussian Splatting.pdf",
+    "Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation.pdf",
+    "colmap-free 3dgs/COLMAP-Free 3D Gaussian Splatting.pdf",
+    "points/RWKV.md",
     "feedforward/GPS-Gaussian_ Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis.pdf",
     "feedforward/DrivingForward Feed-forward 3D Gaussian Splatting for Driving Scene.pdf",
-    "feedforward",
-    "新建文件夹",
-    "3dgs/相机变换.md",
     "3dgs/3dgs.md",
-    "colmap-free 3dgs/COLMAP-Free 3D Gaussian Splatting.pdf",
-    "colmap-free 3dgs",
-    "DrivingForward Feed-forward 3D Gaussian Splatting for Driving Scene.pdf",
-    "32793-Article Text-36861-1-2-20250410.pdf",
-    "GPS-Gaussian_ Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis.pdf.crdownload",
-    "GPS-Gaussian_ Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis.pdf",
     "3dgs/assets/Pasted image 20260115192724.png",
-    "3dgs/正定性.md",
-    "3dgs/3d_gaussian_splatting_low.pdf"
+    "3dgs/assets/Pasted image 20260113225213.png",
+    "3dgs/assets/Capture_20260113_230826.jpg",
+    "3dgs/相机变换.md",
+    "3dgs/正定性.md"
   ]
 }
