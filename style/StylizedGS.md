@@ -19,7 +19,7 @@
     在风格化过程中保留原始图像的纹理特征，以免被风格化内容覆盖，导致不精确。
 
 2.  **约束条件（s.t.）**：
-$$ \text{s.t. } \mu_{p_c^{re}} = \mu_{p_s}, \Sigma_{p_c^{re}} = \Sigma_{p_s} $$
+    $$ \text{s.t. } \mu_{p_c^{re}} = \mu_{p_s}, \Sigma_{p_c^{re}} = \Sigma_{p_s} $$
     * $\text{s.t.}$：是“subject to”的缩写，表示“在…条件下”或“满足…约束”。
     *   $\mu_{p_c^{re}}$：重新**着色后**的内容**像素**的**平均颜色**（RGB 三个通道的均值）。
     *   $\mu_{p_s}$：表示**风格图像**像素的**平均颜色**。
@@ -66,7 +66,7 @@ $$ \mathcal{L}_{rec} = (1-\lambda_{rec})\mathcal{L}_1(\mathcal{I}_{content}^{re}
 将参考风格图像的详细风格特征迁移到 3DGS 表示的 3D 场景中，同时确保内容和几何结构的保留。
 
 **3.1 目标：**
-将 2D 风格图像 Istyle 的详细风格特征迁移到 3D 场景，生成风格化的 3D 模型 $G_{sty}^\theta​$，同时保持原始场景的内容结构。
+将 2D 风格图像 Istyle 的详细风格特征迁移到 3D 场景，生成风格化的 3D 模型 $G_{sty}^\theta$，同时保持原始场景的内容结构。
 
 **3.2 方法概览：**
 
@@ -93,7 +93,8 @@ $$(i^*,j^*) = \arg\min_{i',j'} D\left(F_{\text{render}}(i,j), F_{\text{style}}(i
 
 - $D(a,b)$：向量 $a$ 和 $b$ 之间的余弦距离  - $NN$：特征图中像素点的总数，用于归一化
 - 内容损失 (Content Loss)
-为了在风格化过程中保留原始场景的内容结构，引入了内容损失。  
+- 
+- 为了在风格化过程中保留原始场景的内容结构，引入了内容损失。  
 它衡量渲染图像的特征图与原始内容图像（经过颜色匹配后的 $I_{\text{re\_content}}$）特征图之间的均方距离。
 
 公式：
@@ -127,13 +128,10 @@ $$
 
 - 正则化项 (Regularization Terms)
   为了对 3DGS 参数的变化进行约束，以保持场景的稳定性和细节，论文引入了针对高斯尺度 ($s$) 和不透明度 ($\alpha$) 变化的正则化项。
-公式：
+  公式：
 
-$$
-L_{\text{ds}}^{\text{reg}} = \frac{1}{M} \|\Delta s\|
-$$$$
-L_{\text{d}\alpha}^{\text{reg}} = \frac{1}{M} \|\Delta \alpha\|
-$$
+$$L_{\text{ds}}^{\text{reg}} = \frac{1}{M} \|\Delta s\|$$
+$$L_{\text{d}\alpha}^{\text{reg}} = \frac{1}{M} \|\Delta \alpha\|$$
 其中：
 
 - $\Delta s$：高斯尺度参数的变化  
@@ -147,7 +145,6 @@ $L_{\text{tv}}$ 用于平滑渲染图像，减少图像中的噪声和锯齿，�
 - 总损失函数 (Total Loss Function)
 
 公式：
-
 $$
 L = \lambda_{\text{sty}} L_{\text{style}} + \lambda_{\text{con}} L_{\text{content}} + \lambda_{\text{dep}} L_{\text{depth}} + \lambda_{\text{sca}} L_{\text{ds}}^{\text{reg}} + \lambda_{\text{opa}} L_{\text{d}\alpha}^{\text{reg}} + \lambda_{\text{tv}} L_{\text{tv}}
 	$$

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "style/StylizedGS.md",
+                "file": "Experiments.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "StylizedGS"
+              "title": "Experiments"
             }
           }
         ]
@@ -186,12 +186,13 @@
   },
   "active": "f24c1470e0527057",
   "lastOpenFiles": [
+    "StylizedGS.pdf",
+    "Experiments.md",
+    "Experiments.pdf",
+    "style/StylizedGS.md",
     "style/Style Transfer by Relaxed Optimal Transport and Self-Similarity.pdf",
     "style/TPAMI2025-StylizedGS Controllable Stylization for 3D Gaussian Splatting.pdf",
-    "Experiments.md",
     "文稿/毕设任务书.docx",
-    "style/StylizedGS.md",
-    "StylizedGS.pdf",
     "points/assets/Pasted image 20260117120123.png",
     "style/G-Style Stylized Gaussian Splatting.pdf",
     "().md",
@@ -202,7 +203,6 @@
     "points/AAAI2026_PointDGRWKV.pdf",
     "style/Style Transfer by Relaxed Optimal Transport and Self-Similarity.pdf.crdownload",
     "TPAMI2025-StylizedGS Controllable Stylization for 3D Gaussian Splatting.pdf",
-    "Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation.pdf",
     "points/RWKV.md",
     "3dgs/3dgs.md",
     "3dgs/assets/Pasted image 20260115192724.png",
