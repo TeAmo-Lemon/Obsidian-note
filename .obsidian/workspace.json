@@ -11,6 +11,18 @@
             "id": "90fa53c323d2746c",
             "type": "leaf",
             "state": {
+              "type": "pdf",
+              "state": {
+                "file": "StylizedGS.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "StylizedGS"
+            }
+          },
+          {
+            "id": "85b66172766892a7",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
                 "file": "Experiments.md",
@@ -186,23 +198,24 @@
   },
   "active": "90fa53c323d2746c",
   "lastOpenFiles": [
+    "style/StylizedGS.md",
+    "StylizedGS.pdf",
+    "points/assets/Pasted image 20260117120123.png",
+    "Experiments.md",
+    "style/G-Style Stylized Gaussian Splatting.pdf",
+    "().md",
     "assets/Pasted image 20260127192737.png",
     "style/assets/Pasted image 20260127215400.png",
     "style/assets/Pasted image 20260127215440.png",
-    "style/G-Style Stylized Gaussian Splatting.pdf",
-    "style/StylizedGS.md",
     "style/assets",
-    "Experiments.md",
     "points/AAAI2026_PointDGRWKV.pdf",
     "style/Style Transfer by Relaxed Optimal Transport and Self-Similarity.pdf",
     "style/Style Transfer by Relaxed Optimal Transport and Self-Similarity.pdf.crdownload",
-    "points/assets/Pasted image 20260117120123.png",
     "TPAMI2025-StylizedGS Controllable Stylization for 3D Gaussian Splatting.pdf",
     "Rich Feature Hierarchies for Accurate Object Detection and Semantic Segmentation.pdf",
     "colmap-free 3dgs/COLMAP-Free 3D Gaussian Splatting.pdf",
     "points/RWKV.md",
     "feedforward/GPS-Gaussian_ Generalizable Pixel-wise 3D Gaussian Splatting for Real-time Human Novel View Synthesis.pdf",
-    "feedforward/DrivingForward Feed-forward 3D Gaussian Splatting for Driving Scene.pdf",
     "3dgs/3dgs.md",
     "3dgs/assets/Pasted image 20260115192724.png",
     "3dgs/assets/Pasted image 20260113225213.png",

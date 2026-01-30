@@ -76,7 +76,7 @@ $$ \mathcal{L}_{rec} = (1-\lambda_{rec})\mathcal{L}_1(\mathcal{I}_{content}^{re}
 
 **3.3 损失函数：**
 - 风格损失 (Style Loss)
-	论文采用了 **Nearest Neighbor Feature Matching Loss**。  
+	论文采用了 **[Nearest Neighbor Feature Matching Loss]()**。
 	它通过最小化渲染图像特征图与其在风格特征图中最近邻之间的余弦距离来衡量风格相似性。
 
 	公式：
@@ -162,3 +162,102 @@ $$
 	其中：
 	
 	- $\lambda_*$：对应损失项的权重系数，用于平衡不同损失项的重要性。
+
+### 4 Perceptual Control
+
+**4.1 Color Control**
+
+**目标与功能：**
+允许用户在风格化过程中**独立调整场景的色彩**，提供以下灵活控制选项：
+
+- 保留原始场景的颜色
+- 完全采用参考风格图像的颜色
+- 将某个图像的图案风格与另一个图像的颜色风格自由组合
+
+**实现方法：**
+
+核心思想：在 **YIQ 颜色空间** 中进行解耦操作。
+
+YIQ 颜色空间将图像分解为：
+
+- **Y** 通道：亮度（Luminance），主要携带结构、纹理、边缘、高频细节信息
+- **I 和 Q** 通道：色度（Chrominance），主要携带颜色信息
+
+仅在亮度（Y）通道上计算风格损失，从而让模型学习并迁移**颜色无关的风格模式**。
+
+**公式：**
+
+$$
+L_{\text{color}}^{\text{style}} = L_{\text{style}}\Big( F(I_{\text{render}}^Y),\ F(I_{\text{style}}^Y) \Big)
+$$
+其中：
+
+- $L_{\text{color}}^{\text{style}}$ —— 专为颜色控制设计的风格损失项  
+- $L_{\text{style}}(\cdot,\ \cdot)$ —— 核心风格损失函数，即 Nearest Neighbor Feature Matching Loss  
+- $F(\cdot)$ —— 特征提取器，通常为预训练的 VGG 网络（某层或多层特征图）  
+- $I_{\text{render}}^Y$ —— 当前渲染图像的**亮度通道**（Y channel）  
+- $I_{\text{style}}^Y$ —— 参考风格图像的**亮度通道**（Y channel）
+
+**4.2 Scale Control**
+
+允许用户调整风格化效果中基础风格元素的尺寸，例如笔触的粗细、图案的密度、纹理的颗粒大小等。
+
+核心思想是通过选择用于计算风格损失的 VGG 网络层及其权重，来间接控制感受野的大小，从而实现风格图案尺寸的灵活变化。
+
+尺度风格损失公式：
+
+$$ L_{\text{scale}}^{\text{style}} = \sum_{l \in b_s} w_l \cdot L_{\text{style}}(F_l(I_{\text{render}}), F_l(I_{\text{style}})) \quad (10) $$
+
+参数解释：
+
+- $L_{\text{scale}}^{\text{style}}$：用于实现 Scale Control 的风格损失项，由多个 VGG 网络层损失的加权和构成。
+
+- $b_s$：选定的 VGG-16 网络中的某个块（block）。通过选择不同的块，可以捕获不同尺度的特征。
+
+- $\sum_{l \in b_s}$：对指定块 $b_s$ 内所有层 $l$ 进行求和。
+
+- $w_l$：第 $l$ 层对应的权重。通过调整权重分布，可以强调或减弱特定感受野尺度的风格特征对最终结果的影响。
+
+- $L_{\text{style}}(F_l(I_{\text{render}}), F_l(I_{\text{style}}))$：在第 $l$ 层计算的 Nearest Neighbor Feature Matching Loss。
+
+- $F_l(I_{\text{render}})$：从渲染图像 $I_{\text{render}}$ 中提取的第 $l$ 层特征图。
+
+- $F_l(I_{\text{style}})$：从风格图像 $I_{\text{style}}$ 中提取的第 $l$ 层特征图。
+
+通过选择不同的 VGG 块并调节各层权重，用户可以实现从极细腻的高频细节到较为粗犷的大尺度风格结构的连续控制。
+
+**4.3 Spatial Control**
+
+**目标**：让用户可以指定场景中不同区域或对象应用不同风格。
+
+**实现方式：**  
+通过生成空间掩码（masks）定义需要风格化的区域，可通过  
+- 点交互 + SAM + 掩码跟踪（跨视图一致性）  
+- 文本提示 + LangSAM  
+两种方式生成多视图一致的掩码。
+
+在优化过程中引入专门的空间风格损失：
+
+$$ L^{\text{spatial}}_{\text{style}} = \sum_r w_r \cdot L_{\text{style}}\Big( F(M^c_r \circ I^r_{\text{render}}),\, F(M^s_r \circ I^r_{\text{style}}) \Big) $$
+
+参数解释：
+
+- $L^{\text{spatial}}_{\text{style}}$：空间风格损失，确保只在用户指定区域内进行风格匹配与迁移。
+
+- $r$：用户指定的区域对索引（第 r 对内容-风格区域匹配）。
+
+- $w_r$：第 r 个区域对的权重，用于平衡不同区域的重要性。
+
+- $L_{\text{style}}(\cdot,\ \cdot)$：核心风格损失函数，即 Nearest Neighbor Feature Matching Loss（见论文公式(4)）。
+
+- $F(\cdot)$：VGG 网络特征提取器。
+
+- $M^c_r$：作用于渲染图像的二值掩码，标记第 r 个待风格化的内容区域（1=保留，0=屏蔽）。
+
+- $M^s_r$：作用于风格图像的二值掩码，标记第 r 个用于迁移的风格参考区域。
+
+- $\circ$：逐元素乘法（Hadamard product），实现区域选择。
+
+- $I^r_{\text{render}}$：当前渲染视图中与第 r 个区域对应的图像内容。
+
+- $I^r_{\text{style}}$：风格参考图像中与第 r 个区域对应的部分。
