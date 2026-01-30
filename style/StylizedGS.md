@@ -76,92 +76,85 @@ $$ \mathcal{L}_{rec} = (1-\lambda_{rec})\mathcal{L}_1(\mathcal{I}_{content}^{re}
 
 **3.3 损失函数：**
 - 风格损失 (Style Loss)
-	论文采用了 **[Nearest Neighbor Feature Matching Loss]()**。
-	它通过最小化渲染图像特征图与其在风格特征图中最近邻之间的余弦距离来衡量风格相似性。
+论文采用了 **[Nearest Neighbor Feature Matching Loss]()**。
+它通过最小化渲染图像特征图与其在风格特征图中最近邻之间的余弦距离来衡量风格相似性。
 
-	公式：
+公式：
 
 $$
 L_{\text{style}}(F_{\text{render}}, F_{\text{style}}) = \frac{1}{NN} \sum_{i,j} D\left(F_{\text{render}}(i,j), F_{\text{style}}(i^*,j^*)\right)
 $$
-	其中：
-	
-	- $F_{\text{render}}$：渲染图像 $I_{\text{render}}$ 的 VGG 特征图  
-	- $F_{\text{style}}$：风格图像 $I_{\text{style}}$ 的 VGG 特征图  
-	- $(i,j)$：$F_{\text{render}}$ 中像素点的坐标  
-	- $(i^*,j^*)$：$F_{\text{style}}$ 中与 $F_{\text{render}}(i,j)$ 最相似的像素点坐标，通过以下方式找到：  
-	  $$
-	  (i^*,j^*) = \arg\min_{i',j'} D\left(F_{\text{render}}(i,j), F_{\text{style}}(i',j')\right)
-	  $$
-	- $D(a,b)$：向量 $a$ 和 $b$ 之间的余弦距离  
-	- $NN$：特征图中像素点的总数，用于归一化
+其中：
+- $F_{\text{render}}$：渲染图像 $I_{\text{render}}$ 的 VGG 特征图  
+- $F_{\text{style}}$：风格图像 $I_{\text{style}}$ 的 VGG 特征图  
+- $(i,j)$：$F_{\text{render}}$ 中像素点的坐标  
+- $(i^*,j^*)$：$F_{\text{style}}$ 中与 $F_{\text{render}}(i,j)$ 最相似的像素点坐标，通过以下方式找到：  
+$$(i^*,j^*) = \arg\min_{i',j'} D\left(F_{\text{render}}(i,j), F_{\text{style}}(i',j')\right)$$
 
-
+- $D(a,b)$：向量 $a$ 和 $b$ 之间的余弦距离  - $NN$：特征图中像素点的总数，用于归一化
 - 内容损失 (Content Loss)
-	为了在风格化过程中保留原始场景的内容结构，引入了内容损失。  
-	它衡量渲染图像的特征图与原始内容图像（经过颜色匹配后的 $I_{\text{re\_content}}$）特征图之间的均方距离。
+为了在风格化过程中保留原始场景的内容结构，引入了内容损失。  
+它衡量渲染图像的特征图与原始内容图像（经过颜色匹配后的 $I_{\text{re\_content}}$）特征图之间的均方距离。
 
-	公式：
-	
-	$$
-	L_{\text{content}} = \frac{1}{H \times W} \| F_{\text{content}} - F_{\text{render}} \|_2^2
-	$$
-	
-	其中：
-	
-	- $F_{\text{content}}$：原始内容图像 $I_{\text{re\_content}}$ 的 VGG 特征图  
-	- $F_{\text{render}}$：渲染图像 $I_{\text{render}}$ 的 VGG 特征图  
-	- $H \times W$：渲染图像的高度和宽度
+公式：
+
+$$
+L_{\text{content}} = \frac{1}{H \times W} \| F_{\text{content}} - F_{\text{render}} \|_2^2
+$$
+
+其中：
+
+- $F_{\text{content}}$：原始内容图像 $I_{\text{re\_content}}$ 的 VGG 特征图  
+- $F_{\text{render}}$：渲染图像 $I_{\text{render}}$ 的 VGG 特征图  
+- $H \times W$：渲染图像的高度和宽度
 
 
 - 深度保持损失 (Depth Preservation Loss)
-	为了在优化 3DGS几何参数时防止场景**几何结构发生显著变化**，引入了 **Depth Preservation Loss**。  
-	它通过最小化渲染深度图 $D_{\text{render}}$ 与原始深度图 $D_{\text{origin}}$ 之间的 $L_2$ 距离，来确保几何的一致性。
+为了在优化 3DGS几何参数时防止场景**几何结构发生显著变化**，引入了 **Depth Preservation Loss**。  
+它通过最小化渲染深度图 $D_{\text{render}}$ 与原始深度图 $D_{\text{origin}}$ 之间的 $L_2$ 距离，来确保几何的一致性。
 
-	公式：
-	
-	$$
-	L_{\text{depth}} = \frac{1}{H \times W} \| D_{\text{origin}} - D_{\text{render}} \|_2^2
-	$$
-	
-	其中：
-	
-	- $D_{\text{origin}}$：通过 3DGS 的 alpha-blending 方法在颜色迁移阶段生成的原始深度图  
-	- $D_{\text{render}}$：风格化过程中渲染的深度图
+公式：
+
+$$
+L_{\text{depth}} = \frac{1}{H \times W} \| D_{\text{origin}} - D_{\text{render}} \|_2^2
+$$
+
+其中：
+
+- $D_{\text{origin}}$：通过 3DGS 的 alpha-blending 方法在颜色迁移阶段生成的原始深度图  
+- $D_{\text{render}}$：风格化过程中渲染的深度图
 
 
 - 正则化项 (Regularization Terms)
+  为了对 3DGS 参数的变化进行约束，以保持场景的稳定性和细节，论文引入了针对高斯尺度 ($s$) 和不透明度 ($\alpha$) 变化的正则化项。
+公式：
 
-	为了对 3DGS 参数的变化进行约束，以保持场景的稳定性和细节，论文引入了针对高斯尺度 ($s$) 和不透明度 ($\alpha$) 变化的正则化项。
-	
-	公式：
-	
-	$$
-	L_{\text{ds}}^{\text{reg}} = \frac{1}{M} \|\Delta s\|
-	$$$$
-	L_{\text{d}\alpha}^{\text{reg}} = \frac{1}{M} \|\Delta \alpha\|
-	$$
-	其中：
-	
-	- $\Delta s$：高斯尺度参数的变化  
-	- $\Delta \alpha$：高斯不透明度参数的变化  
-	- $M$：高斯点的总数
+$$
+L_{\text{ds}}^{\text{reg}} = \frac{1}{M} \|\Delta s\|
+$$$$
+L_{\text{d}\alpha}^{\text{reg}} = \frac{1}{M} \|\Delta \alpha\|
+$$
+其中：
+
+- $\Delta s$：高斯尺度参数的变化  
+- $\Delta \alpha$：高斯不透明度参数的变化  
+- $M$：高斯点的总数
 
 - 总变分损失 (Total Variation Loss)
 
-	$L_{\text{tv}}$ 用于平滑渲染图像，减少图像中的噪声和锯齿，提高视觉质量。
+$L_{\text{tv}}$ 用于平滑渲染图像，减少图像中的噪声和锯齿，提高视觉质量。
 
 - 总损失函数 (Total Loss Function)
-	
-	公式：
-	
+
+公式：
+
+$$
+L = \lambda_{\text{sty}} L_{\text{style}} + \lambda_{\text{con}} L_{\text{content}} + \lambda_{\text{dep}} L_{\text{depth}} + \lambda_{\text{sca}} L_{\text{ds}}^{\text{reg}} + \lambda_{\text{opa}} L_{\text{d}\alpha}^{\text{reg}} + \lambda_{\text{tv}} L_{\text{tv}}
 	$$
-	L = \lambda_{\text{sty}} L_{\text{style}} + \lambda_{\text{con}} L_{\text{content}} + \lambda_{\text{dep}} L_{\text{depth}} + \lambda_{\text{sca}} L_{\text{ds}}^{\text{reg}} + \lambda_{\text{opa}} L_{\text{d}\alpha}^{\text{reg}} + \lambda_{\text{tv}} L_{\text{tv}}
-	$$
-	
-	其中：
-	
-	- $\lambda_*$：对应损失项的权重系数，用于平衡不同损失项的重要性。
+
+其中：
+
+- $\lambda_*$：对应损失项的权重系数，用于平衡不同损失项的重要性。
 
 ### 4 Perceptual Control
 
